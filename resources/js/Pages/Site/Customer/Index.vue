@@ -76,14 +76,14 @@ const remove = (product) => {
 <template>
     <section id="customer" class="flex flex-col items-center">
         <!-- <div class="p-4 bg-red-300">
-                </div> -->
+                    </div> -->
         <div class="container">
             <div class="pb-6 flex items-center justify-between">
                 <div class="font-bold text-[22px]">
                     <h1>Customer List</h1>
                 </div>
                 <div>
-                    <Link class="text-[14px] font-plain bg-green-300 px-6 py-2 rounded" :href="route('customers.create')">
+                    <Link class="text-[14px] text-white font-bold bg-blue-700 px-6 py-2 cursor-pointer rounded" :href="route('customers.create')">
                     Add New
                     </Link>
                 </div>
@@ -130,17 +130,15 @@ const remove = (product) => {
                             {{ customer.status }}
                         </td>
                         <td class="px-6 py-4 ">
-                            <div class="flex gap-1">
+                            <div class="flex gap-1 justify-center">
                                 <Link :href="route('customers.edit', customer.id)"
                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline p-2">
-                                <!-- <i class="ri-pencil-line ri-xl"></i> -->
-                                Edit
+                                    <img src="/images/table/edit-18.png" class="hover:underline">
                                 </Link>
 
-                                <button @click="remove(customer.id)" 
+                                <button @click="remove(customer.id)"
                                     class="font-medium text-red-600 dark:text-red-500 hover:underline p-2">
-                                    <!-- <i class="ri-delete-bin-2-line ri-xl"></i> -->
-                                    Delete
+                                    <img src="/images/table/delete-18.png" class="hover:underline">
                                 </button>
                             </div>
                         </td>

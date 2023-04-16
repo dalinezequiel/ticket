@@ -62,7 +62,7 @@ const submit = () => {
                 </div>
                 <div class="flex pt-2">
                     <div class="pr-4">
-                        <input type="submit" value="Update" :disabled="form.processing" class="bg-green-400 px-6 py-2 cursor-pointer rounded">
+                        <input type="submit" value="Update" :disabled="form.processing" class="text-white font-bold bg-blue-700 px-8 py-2 cursor-pointer rounded">
                     </div>
                     <!-- <div>
                         <input type="reset" value="Reset" class="bg-red-400 px-6 py-2 cursor-pointer rounded">
