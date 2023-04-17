@@ -3,38 +3,50 @@ import { useForm } from '@inertiajs/vue3';
 import InputError from '@/Components/InputError.vue';
 
 const form = useForm({
-    firstname:'',
-    surname:'',
-    email:'',
-    birthday:'',
-    status:'',
+    firstname: '',
+    surname: '',
+    gender:'',
+    email: '',
+    birthday: '',
+    status: '',
+    description:'',
 });
 
 const submit = () => {
     form.post(route('customers.store'), {
-        onFinish: () => {}
+        onFinish: () => { }
     });
 };
 </script>
 <template>
-    <section id="customer" class="flex flex-col items-center">
+    <section id="customer" class="flex flex-col items-center bg-gray-200">
         <div v-if="$page.props.errors.error" class="p-4 bg-red-300">
-            {{ $page.props.errors.error}}
+            {{ $page.props.errors.error }}
         </div>
         <div class="container">
             <div class="pb-4 font-bold text-[22px]">
                 <h1>Create Customer</h1>
             </div>
             <form @submit.prevent="submit">
-                <div class="flex flex-col pb-2">
-                    <label>Name</label>
-                    <input type="text" v-model="form.firstname" class="rounded border-gray-200">
-                    <InputError class="mt-2" :message="form.errors.firstname" />
+                <div class="flex justify">
+                    <div class="flex flex-col pb-2 pr-1 w-full">
+                        <label>Name</label>
+                        <input type="text" v-model="form.firstname" class="rounded border-gray-200">
+                        <InputError class="mt-2" :message="form.errors.firstname" />
+                    </div>
+                    <div class="flex flex-col pb-2 pl-1 w-full">
+                        <label>Surname</label>
+                        <input type="text" v-model="form.surname" class="rounded border-gray-200">
+                        <InputError class="mt-2" :message="form.errors.surname" />
+                    </div>
                 </div>
                 <div class="flex flex-col pb-2">
-                    <label>Surname</label>
-                    <input type="text" v-model="form.surname" class="rounded border-gray-200">
-                    <InputError class="mt-2" :message="form.errors.surname" />
+                    <labe>Gender</labe>
+                    <select v-model="form.gender" class="rounded border-gray-300">
+                        <option>Femenino</option>
+                        <option>Masculino</option>
+                    </select>
+                    <InputError class="mt-2" :message="form.errors.gender" />
                 </div>
                 <div class="flex flex-col pb-2">
                     <label>Email</label>
@@ -54,12 +66,19 @@ const submit = () => {
                     </select>
                     <InputError class="mt-2" :message="form.errors.status" />
                 </div>
+                <div class="flex flex-col pb-4">
+                    <label>Description</label>
+                    <textarea v-model="form.description" rows="2" class="rounded border-gray-200"></textarea>
+                    <InputError class="mt-2" :message="form.errors.description" />
+                </div>
                 <div class="flex pt-2">
                     <div class="pr-4">
-                        <input type="submit" value="Register" :disabled="form.processing" class="text-white font-bold bg-blue-700 px-8 py-2 cursor-pointer rounded">
+                        <input type="submit" value="Register" :disabled="form.processing"
+                            class="text-white font-bold bg-blue-700 px-8 py-2 cursor-pointer rounded">
                     </div>
                     <div>
-                        <input type="reset" value="Reset" class="text-white font-bold bg-red-700 px-8 py-2 cursor-pointer rounded">
+                        <input type="reset" value="Reset"
+                            class="text-white font-bold bg-red-700 px-8 py-2 cursor-pointer rounded">
                     </div>
                 </div>
             </form>
@@ -67,10 +86,10 @@ const submit = () => {
     </section>
 </template>
 <style scoped>
- .container{
-    padding: 100px 150px;
+.container {
+    padding: 50px 150px;
     display: flex;
     flex-direction: column;
     justify-items: center;
- }
+}
 </style>

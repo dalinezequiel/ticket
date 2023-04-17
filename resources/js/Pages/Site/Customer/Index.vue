@@ -33,8 +33,7 @@ const remove = (product) => {
                             return data;
                         } else {
                             if (data.errors) {
-                                Swal.showValidationMessage(
-                                    `${data.errors.toString().replace(".", "")} , Tente Novamente`
+                                Swal.showValidationMessage(`${data.errors.toString().replace(".", "")} , Tente Novamente`
                                 );
                             } else {
                                 Swal.showValidationMessage(`${data.message} , Tente Novamente`);
@@ -98,6 +97,9 @@ const remove = (product) => {
                             Surname
                         </td>
                         <td class="px-6 py-4">
+                            Gender
+                        </td>
+                        <td class="px-6 py-4">
                             Email
                         </td>
                         <td class="px-6 py-4">
@@ -119,6 +121,9 @@ const remove = (product) => {
                         </td>
                         <td class="px-6 py-2">
                             {{ customer.surname }}
+                        </td>
+                        <td class="px-6 py-2">
+                            {{ customer.gender }}
                         </td>
                         <td class="px-6 py-2">
                             {{ customer.email }}
@@ -165,7 +170,7 @@ const remove = (product) => {
 </template>
 <style scoped>
 .container {
-    padding: 100px 150px;
+    padding: 98px 150px;
     display: flex;
     flex-direction: column;
     justify-items: center;

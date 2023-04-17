@@ -17,9 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('firstname');
             $table->string('surname');
+            $table->string('gender');
             $table->string('email');
             $table->date('birthday');
             $table->string('status');
+            $table->string('description');
             $table->timestamps();
         });
     }

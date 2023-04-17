@@ -17,7 +17,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = Customer::paginate(4);
+        $customers = Customer::paginate(3);
         return Inertia::render('Site/Customer/Index', compact('customers'));
     }
 
@@ -42,9 +42,11 @@ class CustomerController extends Controller
         \Validator::make($request->all(), [
             'firstname' => ['required', 'string'],
             'surname' => ['required', 'string'],
+            'gender' => ['required', 'string'],
             'email' => ['required', 'string'],
             'birthday' => ['required', 'string'],
             'status' => ['required', 'string'],
+            'description' => ['required', 'string'],
         ])->validate();
 
         try {
@@ -52,9 +54,11 @@ class CustomerController extends Controller
             Customer::create([
                 'firstname' => $request->firstname,
                 'surname' => $request->surname,
+                'gender' => $request->gender,
                 'email' => $request->email,
                 'birthday' => $request->birthday,
                 'status' => $request->status,
+                'description' => $request->description,
             ]);
 
             DB::commit();
@@ -107,9 +111,11 @@ class CustomerController extends Controller
         \Validator::make($request->all(), [
             'firstname' => ['required', 'string'],
             'surname' => ['required', 'string'],
+            'gender' => ['required', 'string'],
             'email' => ['required', 'string'],
             'birthday' => ['required', 'string'],
             'status' => ['required', 'string'],
+            'description' => ['required', 'string'],
         ])->validate();
 
         try {
@@ -119,9 +125,11 @@ class CustomerController extends Controller
                 [
                     'firstname' => $request->firstname,
                     'surname' => $request->surname,
+                    'gender' => $request->gender,
                     'email' => $request->email,
                     'birthday' => $request->birthday,
                     'status' => $request->status,
+                    'description' => $request->description,
                 ]
             );
 
