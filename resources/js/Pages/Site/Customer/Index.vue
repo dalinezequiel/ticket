@@ -27,7 +27,7 @@ const remove = (product) => {
             preConfirm: () => {
                 return axios
 
-                    .delete("/Site/customers/" + product)
+                    .delete("/customers/" + product)
                     .then(({ data }) => {
                         if (data.success) {
                             return data;
@@ -91,14 +91,17 @@ const remove = (product) => {
                 <thead>
                     <tr class="text-[12px] text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <td class="px-6 py-4">
+                            Imagem
+                        </td>
+                        <td class="px-6 py-4">
                             First Name
                         </td>
                         <td class="px-6 py-4">
                             Surname
                         </td>
-                        <td class="px-6 py-4">
+                        <!-- <td class="px-6 py-4">
                             Gender
-                        </td>
+                        </td> -->
                         <td class="px-6 py-4">
                             Email
                         </td>
@@ -116,15 +119,18 @@ const remove = (product) => {
                 <tbody>
                     <tr v-for="customer in $page.props.customers.data" :key="customer.id"
                         class="bg-white border-b text-[14px]">
+                        <td class="px-6 py-4">
+                            
+                        </td>
                         <td class="px-6 py-2">
                             {{ customer.firstname }}
                         </td>
                         <td class="px-6 py-2">
                             {{ customer.surname }}
                         </td>
-                        <td class="px-6 py-2">
+                        <!-- <td class="px-6 py-2">
                             {{ customer.gender }}
-                        </td>
+                        </td> -->
                         <td class="px-6 py-2">
                             {{ customer.email }}
                         </td>

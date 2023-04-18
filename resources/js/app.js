@@ -6,6 +6,12 @@ import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 
+import swal from 'sweetalert2';
+window.Swal = swal;
+import "sweetalert2/dist/sweetalert2.css";
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 createInertiaApp({
@@ -15,6 +21,7 @@ createInertiaApp({
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue, Ziggy)
+            .use(VueAxios, axios)
             .mount(el);
     },
     progress: {
