@@ -42,6 +42,7 @@ class CustomerController extends Controller
         \Validator::make($request->all(), [
             'firstname' => ['required', 'string'],
             'surname' => ['required', 'string'],
+            'attachment' => ['required', 'file', 'image'],
             'gender' => ['required', 'string'],
             'email' => ['required', 'string'],
             'birthday' => ['required', 'string'],
@@ -54,6 +55,7 @@ class CustomerController extends Controller
             Customer::create([
                 'firstname' => $request->firstname,
                 'surname' => $request->surname,
+                'path' => $this->uploadFile($request->attachment, 'attachment'),
                 'gender' => $request->gender,
                 'email' => $request->email,
                 'birthday' => $request->birthday,

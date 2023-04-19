@@ -120,7 +120,7 @@ const remove = (product) => {
                     <tr v-for="customer in $page.props.customers.data" :key="customer.id"
                         class="bg-white border-b text-[14px]">
                         <td class="px-6 py-4">
-                            
+                            <img class="h-14 w-14" :src="customer.image">
                         </td>
                         <td class="px-6 py-2">
                             {{ customer.firstname }}

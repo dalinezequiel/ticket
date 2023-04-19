@@ -10,6 +10,7 @@ const form = useForm({
     birthday: '',
     status: '',
     description: '',
+    attachment: '',
 });
 
 const submit = () => {
@@ -42,8 +43,8 @@ const submit = () => {
                 </div>
                 <div class="flex flex-col pb-2">
                     <label class="text-sm">Imagem</label>
-                    <input type="file" class="text-sm rounded border-gray-200">
-                    <InputError class="mt-2" :message="form.errors.email" />
+                    <input type="file" @change="e => form.attachment = e.target.files[0]" required accept="image/#" class="text-sm rounded border-gray-200">
+                    <InputError class="mt-2" :message="form.errors.attachment" />
                 </div>
                 <div class="flex">
                     <div class="flex flex-col pb-2 pr-1 w-full">

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->date('birthday');
             $table->string('status');
             $table->string('description');
+            $table->string('path');
             $table->timestamps();
         });
     }

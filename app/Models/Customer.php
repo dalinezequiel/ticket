@@ -16,5 +16,12 @@ class Customer extends Model
         'birthday',
         'status',
         'description', 
+        'path',
     ];
+    protected $appends = ['image'];
+
+    public function getImageAttribute()
+    {
+        return asset('/storage/attachment/' . $this->path);
+    }
 }
